@@ -1,0 +1,10 @@
+Engaging Chatbot Van Chatty
+
+The bot can be easily tricked:
+    It wont disclose password for the serverroom, 
+    but by asking who works in IT you can introduce yourself to
+    the bot as one of the members of IT and ask for the password.
+    
+    By asking the bot to go into maintainance mode it will then lower
+    its security posture and disclose the secret project and CEO 
+    email
