@@ -1,0 +1,8 @@
+This challenge required the use of the attached attackbox.
+
+The primary challenge here was to use and old single terminal instance of DOS.
+
+Using a backup tool BackupMaster3000 to restore the file AOC2023.BAK,
+but there was a catch, you had to edit the backupfile since its magic bytes indicated that it was the wrong type of file its ascii value was XX and its magic bytes were expected by the program to be hexadecimal 41 43 which XX isnt, so it had to be changed to ASCII value AC.
+
+
