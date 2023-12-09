@@ -1,0 +1,23 @@
+The trick to this challenge is that the game we are faced with appears to be unbeatable.
+
+You have to uptain money by interacting with the computer in the game to purchase a star which cost 1000 currency. However the computer only yields a small amount of coins before it breaks and cannot be repaired. 
+
+However there is a bug in the game. The game allows you to change player name for 1 coin per character in the new name, the game also has a debug panel, which allows you to see the memory heap
+
+the first 12 bytes of the heap is "player_name" dafault value "CatOrMouseØØ"
+after this 4 bytes named "coins" default to "*ØØØ"
+shopk_name "Van FrostyØØ"
+namer_name "Van HollyØØØ"
+inv_items "1ØØØØØØØØØØØØØØØ"
+
+Investigations show that renaming to "scroogerocks!" makes the player be called "scroogerocks" and sets the 1st byte of the coins memory space to hex 0d which is 33 coins in the games logic.  
+
+Exploiting this you can set the amount of money to uninteded hights by just renaming you char to something like twelverandomOOPS. The "OOPS" part will buffer overflow into coins memoryspace and its value will be computed to a very high integer!
+
+However when we try to purchase the start with its id from the shopkeeper she flat out tells us that we are not supposed to be able to win the game, so she gives us something else than the winning star item. 
+
+Once again we can use the buffer overflow exploit to force the game to give us the star, this time we have to all the way down to inv_items memoryspace. 
+
+Becareful if you overflow outside of the memory space showed in the debugger the text will go vertical and the flag cant be seen in the victory dialog.
+I used a 4 letter world to keeptrack of lines of memory i was in. "TEST" time 11 followed by the id of the star
+
